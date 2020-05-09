@@ -164,7 +164,7 @@ public class MainController {
     public String manageLienHe(Model model){
 		List<lienhe> lienhe = LienheRepository.findAll();
 		model.addAttribute("Lienhe", lienhe);
-		return "/admin/lienhe";
+		return "admin/lienhe";
     }
     @RequestMapping("manageAccount")
     public String manageAccount(Model model) {
