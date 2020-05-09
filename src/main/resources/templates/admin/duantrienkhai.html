@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="/style/style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<style>
+		.td{
+			width: 20%;
+		}
+				.tableduan{
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
+		.trduan{
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
+		.tdduan{
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
+	</style>
+</head>
+<body>
+
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-2">
+						<a href="admin.php?username=<?=$username?>&password=<?=$password?>" title=""><img src="img/Logo.png" alt="" style="width: 100%; height: auto;"></a>
+					</div>
+					<div class="col-sm-10" >
+						<h2 style="text-align: center; width: 80%; font-weight: 500;">CÔNG TY CỔ PHẦN HANAGO QUỐC TẾ</h2>
+					</div>
+				</div>
+			</div>
+
+
+
+			<div class="container">
+				<div class="row" style=" border-radius: 30px; border-style: solid;">
+<th:block th:include="/admin/menuLeft"></th:block>
+					<div class="col-lg-9 col-md-9" style="background-color: #CC681D; border-top-right-radius: 20px; border-bottom-right-radius: 20px;">
+						<div class="row">
+							<div class="col-lg-12 col-md-12">
+<th:block th:include="/admin/menuTop"></th:block>
+							</div>
+							<div class="col-lg-12 col-md-12" style="margin-top: 20px; background-color: #F8FAD5; text-align: center; margin-bottom: 20px">
+								<div class="row">
+									<div class="col-lg-12 col-md-12">
+										<a href="viewAddDuAn" title="" style="float: right;"><i class="material-icons" style="font-size:48px;color:red">add_circle_outline</i></a>
+									</div>
+									<div class="col-lg-12 col-md-12">
+										<table class="tableduan">
+											<tr class="trduan">
+												<td class="tdduan">Địa chỉ</td>
+												<td class="tdduan">Tên dự án</td>
+												<td class="tdduan">Đường dẫn ảnh</td>
+												<td colspan="2" class="tdduan">Action</td>
+											</tr>
+
+												<tr th:each="duantrienkhai : ${Duantrienkhai}" class="trduan">
+													<td class="tdduan"> <div th:text=${duantrienkhai.location}></div> </td>
+													<td class="tdduan"><div th:text="${duantrienkhai.name}"></div></td>
+													<td class="tdduan"><div th:text=${duantrienkhai.linkimg}></div></td>
+													<td class="tdduan"><a th:href="@{/viewUpdateDuan/} + ${duantrienkhai.id}">Update</a></td>
+													<td class="tdduan"><a th:href="@{/deleteDuAn/}+${duantrienkhai.id}">Delete</a></td>
+												</tr>
+
+										</table>
+									</div>
+								</div>
+								
+							</div>	
+
+						</div>
+
+
+
+					</div>
+				</div>
+				<!-- phan lien he  -->
+<th:block th:include="/admin/endPage"></th:block>
+
+
+
+	</body>
+	</html>

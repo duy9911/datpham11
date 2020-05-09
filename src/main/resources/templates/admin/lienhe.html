@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="/style/style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<style>
+		td{
+			width: 7%;
+			height: auto;
+		}
+		.tablelienhe{
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
+		.trlienhe{
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
+		.tdlienhe{
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
+	</style>
+</head>
+<body>
+
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-2">
+						<a href="admin" title=""><img src="img/Logo.png" alt="" style="width: 100%; height: auto;"></a>
+					</div>
+					<div class="col-sm-10" >
+						<h2 style="text-align: center; width: 80%; font-weight: 500;">CÔNG TY CỔ PHẦN HANAGO QUỐC TẾ</h2>
+					</div>
+				</div>
+			</div>
+
+
+
+			<div class="container">
+				<div class="row">
+				<div class="col-lg-3 col-md-3" style="background-color: #CC681D;"></div>
+					<div class="col-lg-9 col-md-9" style="background-color: #CC681D; width: 100%; height: auto;">
+						<div style="width: 100%">
+<th:block th:include="/admin/menuTop"></th:block>
+						</div>
+					</div>
+					<div style="background-color: #F8FAD5; width: 100%; height: auto;">
+						<form action="searchlienhe.php" accept-charset="utf-8" method="POST">
+							Nhập ngày cần tìm: <input type="text" name="searchlienhe" placeholder="yyyy/mm/dd">
+							<input type="submit" name="" value="Tìm kiếm">
+						</form>
+					</div>
+					<div style="background-color: #F8FAD5; width: 100%; height: auto;">
+						<table class="tablelienhe">
+							<tr class="trlienhe">
+								<td class="tdlienhe">Họ và tên</td>
+								<td class="tdlienhe">Địa chỉ</td>
+								<td class="tdlienhe">Điện thoại</td>
+								<td class="tdlienhe">Gmail</td>
+								<td class="tdlienhe">Mục đích gửi</td>
+								<td class="tdlienhe">Tiêu đề</td>
+								<td class="tdlienhe">Nội dung</td>
+								<td class="tdlienhe">Ngày liên hệ</td>
+							</tr>
+
+								<tr class="trlienhe" th:each="lienhe : ${Lienhe}">
+									<td class="tdlienhe" th:text=${lienhe.hoten}></td>
+									<td class="tdlienhe" th:text=${lienhe.diachi}></td>
+									<td class="tdlienhe" th:text=${lienhe.dienthoai}></td>
+									<td class="tdlienhe" th:text=${lienhe.email}></td>
+									<td class="tdlienhe" th:text=${lienhe.mucdichgui}></td>
+									<td class="tdlienhe" th:text=${lienhe.tieudegui}></td>
+									<td class="tdlienhe" th:text=${lienhe.noidung}></td>
+									<td class="tdlienhe" th:text=${lienhe.ngay}></td>
+								</tr>
+
+
+						</table>
+					</div>
+<th:block th:include="/admin/endPage"></th:block>
+				</div>
+			</div>
+			<!-- phan lien he  -->
+
+
+</body>
+</html>
