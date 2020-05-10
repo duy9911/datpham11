@@ -160,7 +160,7 @@ public class MainController {
 		return "admin/duantrienkhai";
     	
     }
-    @RequestMapping("manageLienHe", produces="application/x-www-form-url encoded;charset-UTF-8")
+    @RequestMapping("manageLienHe")
     public String manageLienHe(Model model){
 		List<lienhe> lienhe = LienheRepository.findAll();
 		model.addAttribute("Lienhe", lienhe);
