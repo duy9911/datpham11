@@ -149,7 +149,7 @@ public class MainController {
     	duantrienkhaiRepository.save(Duantrienkhai);
 		List<duantrienkhai> duantrienkhai = duantrienkhaiRepository.findAll();
 		model.addAttribute("Duantrienkhai", duantrienkhai);
-		return "admin/duantrienkhai";
+		return "admin/viewAddDuAn";
     	
     }
     @RequestMapping("/deleteDuAn/{id}")
