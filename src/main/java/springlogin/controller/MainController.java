@@ -111,6 +111,7 @@ public class MainController {
     }
     @RequestMapping("addLienhe")
     public String addLienhe(@ModelAttribute("lienhe") springlogin.entities.lienhe Lienhe, Model model){
+	System.out.println(Lienhe.getDiachi());
     	LienheRepository.save(Lienhe);
     	return "lienhe";
     	
