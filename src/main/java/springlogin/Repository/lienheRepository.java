@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import springlogin.entities.lienhe;
 
 @Repository
-public interface lienheRepository extends JpaRepository<lienhe, Integer>{
+public interface lienheRepository extends JpaRepository<lienhe, String>{
 
 }
