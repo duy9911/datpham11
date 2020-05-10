@@ -65,9 +65,6 @@
 		</plugins>
 	</build>
 
-</project>
-
-
 	<filter>
         <filter-name>encoding-filter</filter-name>
         <filter-class>
@@ -94,3 +91,6 @@
             <page-encoding>UTF-8</page-encoding>
         </jsp-property-group>
     </jsp-config>
+</project>
+
+
