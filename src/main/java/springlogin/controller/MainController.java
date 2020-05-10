@@ -112,7 +112,7 @@ public class MainController {
     @RequestMapping("addLienhe")
     public String addLienhe(@ModelAttribute("lienhe") springlogin.entities.lienhe Lienhe, Model model){
     	LienheRepository.save(Lienhe);
-    	return "/";
+    	return "lienhe";
     	
     }
     //admin

@@ -47,7 +47,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/dichvu").access("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')");
  
         // Trang chỉ dành cho ADMIN
-        http.authorizeRequests().antMatchers("/admin","/manageDuantrienkhai", "/viewUpdateDuan", "/updateDuan", "/viewAddDuAn", "/addDuAn", "/deleteDuAn", "/manageLienHe", "/manageAccount", "/viewAddAccount", "/addAccount", "/deleteAccount", "/viewUpdateAccount", "/viewUpdateAccount/{id}").access("hasRole('ROLE_ADMIN')");
+        http.authorizeRequests().antMatchers("/admin","/viewUpdateDuan/{id}","/deleteDuAn/{id}","/deleteAccount/{id}", "/viewUpdateAccount/{id}", "/manageDuantrienkhai", "/viewUpdateDuan", "/updateDuan", "/viewAddDuAn", "/addDuAn", "/deleteDuAn", "/manageLienHe", "/manageAccount", "/viewAddAccount", "/addAccount", "/deleteAccount", "/viewUpdateAccount", "/viewUpdateAccount/{id}").access("hasRole('ROLE_ADMIN')");
  
         // Khi người dùng đã login, với vai trò ROLE_USER.
         // Nhưng truy cập vào trang yêu cầu vai trò ROLE_ADMIN,
