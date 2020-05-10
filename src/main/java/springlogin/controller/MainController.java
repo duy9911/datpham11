@@ -103,13 +103,13 @@ public class MainController {
     public String tamnhinsumenh(Model model) {
     	return "tamnhinsumenh";
     }
-    @RequestMapping("lienhe")
+    @RequestMapping(value = "lienhe", produces = "application/x-www-form-urlencoded;charset=UTF-8")
     public String lienhe(Model model){
     	model.addAttribute("lienhe", new springlogin.entities.lienhe());
 
     	return "lienhe";
     }
-    @RequestMapping("addLienhe")
+    @RequestMapping(value = "addLienhe", produces = "application/x-www-form-urlencoded;charset=UTF-8")
     public String addLienhe(@ModelAttribute("lienhe") springlogin.entities.lienhe Lienhe, Model model){
 	System.out.println(Lienhe.getDiachi());
     	LienheRepository.save(Lienhe);
