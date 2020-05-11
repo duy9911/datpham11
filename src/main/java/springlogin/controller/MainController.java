@@ -145,7 +145,7 @@ public class MainController {
     	model.addAttribute("Duantrienkhai", new duantrienkhai());
     	return "admin/addduan";
     }
-    @RequestMapping("addDuAn")
+    @RequestMapping("/addDuAn")
     public String addDuAn(@ModelAttribute("duantrienkhai") duantrienkhai Duantrienkhai, Model model) {
     	duantrienkhaiRepository.save(Duantrienkhai);
 		List<duantrienkhai> duantrienkhai = duantrienkhaiRepository.findAll();
