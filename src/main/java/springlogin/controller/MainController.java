@@ -109,9 +109,9 @@ public class MainController {
 
     	return "lienhe";
     }
-    @RequestMapping(value = "addLienhe", produces = MediaType.APPLICATION_JSON_VALUE + "; charset=utf-8")
+    @RequestMapping(value = "addLienhe")
     public String addLienhe(@ModelAttribute("lienhe") springlogin.entities.lienhe Lienhe, Model model){
-    	LienheRepository.save(Lienhe);
+    	LienheRepository.save(Lienhe, produces = MediaType.APPLICATION_JSON_VALUE + "; charset=utf-8");
     	return "lienhe";
     	
     }
