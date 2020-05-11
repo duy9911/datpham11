@@ -170,12 +170,12 @@ public class MainController {
 	    return "admin/lienhe";
     
     
-    }
+    }    
     @RequestMapping(value = "searchAccount", produces = "application/x-www-form-urlencoded;charset=UTF-8")
     public String searchAccount(@RequestParam(value = "searchKey") String searchKey, Model model){
-    	List<AppUser> appUser = (List<springlogin.entities.AppUser>) AppUserRepository.findByUsername(searchKey);
-    	model.addAttribute("Account", appUser);
-	    return "/admin/selectaccount";
+    	List<account> Account = (List<springlogin.entities.account>) AccountRepository.findByUsername(searchKey);
+    	model.addAttribute("Account", Account);
+	    return "admin/selectaccount";
     
     
     }
