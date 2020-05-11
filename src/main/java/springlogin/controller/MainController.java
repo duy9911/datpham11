@@ -160,20 +160,7 @@ public class MainController {
 		return "admin/duantrienkhai";
     	
     }
-    @RequestMapping("manageLienHe")
-    public String manageLienHe(Model model){
-//		List<lienhe> lienhe = LienheRepository.findAll();
-//		model.addAttribute("Lienhe", lienhe);
-		return "/admin/lienhe";
-    }
-    @RequestMapping(value = "searchLienHe", produces = "application/x-www-form-urlencoded;charset=UTF-8")
-    public String searchLienHe(@RequestParam(value = "searchKey") String searchKey, Model model){
-    	List<lienhe> lienhe = (List<springlogin.entities.lienhe>) LienheRepository.searchLienHe(searchKey);
-	    model.addAttribute("Lienhe", lienhe);
-	    return "/admin/lienhe";
-    
-    
-    }
+
     @RequestMapping("manageAccount")
     public String manageAccount(Model model) {
 		List<account> account = AccountRepository.findAll();
