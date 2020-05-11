@@ -1,34 +1,29 @@
 package springlogin.controller;
 
 import java.security.Principal;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+
 
 import springlogin.entities.UserRole;
 
-import springlogin.utils.EncryedPasswordUtils;
-import springlogin.sevice.TrainerAccountService;
 
-import javassist.expr.NewArray;
 import springlogin.Repository.UserRoleRepository;
 import springlogin.Repository.accountRepository;
-import springlogin.Repository.appRole;
-import springlogin.Repository.appUserRepository;
+
 import springlogin.Repository.duantrienkhaiRepository;
 import springlogin.Repository.lienheRepository;
 import springlogin.entities.AppRole;
@@ -38,6 +33,7 @@ import springlogin.entities.duantrienkhai;
 import springlogin.entities.lienhe;
 import springlogin.sercurity.EncrytedPasswordUtils;
 import springlogin.utils.WebUtils;
+
 
 
 
@@ -160,7 +156,20 @@ public class MainController {
 		return "admin/duantrienkhai";
     	
     }
-
+    @RequestMapping("manageLienHe")
+    public String manageLienHe(Model model){
+//		List<lienhe> lienhe = LienheRepository.findAll();
+//		model.addAttribute("Lienhe", lienhe);
+		return "/admin/lienhe";
+    }
+    @RequestMapping(value = "searchLienHe", produces = "application/x-www-form-urlencoded;charset=UTF-8")
+    public String searchLienHe(@RequestParam(value = "searchKey") String searchKey, Model model){
+    	List<lienhe> lienhe = (List<springlogin.entities.lienhe>) LienheRepository.searchLienHe(searchKey);
+	    model.addAttribute("Lienhe", lienhe);
+	    return "/admin/lienhe";
+    
+    
+    }
     @RequestMapping("manageAccount")
     public String manageAccount(Model model) {
 		List<account> account = AccountRepository.findAll();
