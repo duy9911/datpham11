@@ -111,8 +111,7 @@ public class MainController {
     }
     @RequestMapping(value = "addLienhe", produces = "application/x-www-form-urlencoded;charset=UTF-8")
     public String addLienhe(@ModelAttribute("lienhe") springlogin.entities.lienhe Lienhe, Model model){
-    	LienheRepository.save(Lienhe);
-    	System.out.println(Lienhe.getDiachi());
+	LienheRepository.savelienhe(Lienhe.getHoten(),Lienhe.getDiachi(), Lienhe.getDienthoai(), Lienhe.getEmail(), Lienhe.getMucdichgui(), Lienhe.getNgay(), Lienhe.getNoidung(), Lienhe.getTieudegui());
     	return "lienhe";
     	
     }
