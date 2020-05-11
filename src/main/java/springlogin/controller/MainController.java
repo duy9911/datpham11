@@ -4,7 +4,7 @@ import java.security.Principal;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
-import org.springframework.http.MediaType;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -109,9 +109,10 @@ public class MainController {
 
     	return "lienhe";
     }
-    @RequestMapping(value = "addLienhe")
+    @RequestMapping(value = "addLienhe", produces = "application/x-www-form-urlencoded;charset=UTF-8")
     public String addLienhe(@ModelAttribute("lienhe") springlogin.entities.lienhe Lienhe, Model model){
-    	LienheRepository.save(Lienhe, produces = MediaType.APPLICATION_JSON_VALUE + "; charset=utf-8");
+    	LienheRepository.save(Lienhe);
+    	System.out.println(Lienhe.getDiachi());
     	return "lienhe";
     	
     }
