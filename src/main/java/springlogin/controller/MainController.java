@@ -23,7 +23,7 @@ import springlogin.entities.UserRole;
 
 import springlogin.Repository.UserRoleRepository;
 import springlogin.Repository.accountRepository;
-
+import springlogin.Repository.appUserRepository;
 import springlogin.Repository.duantrienkhaiRepository;
 import springlogin.Repository.lienheRepository;
 import springlogin.entities.AppRole;
@@ -49,7 +49,7 @@ public class MainController {
 	private UserRoleRepository userRoleRepository;
 	@Autowired
 	private appUserRepository AppUserRepository;
-	
+
 	
 
 	
@@ -117,7 +117,7 @@ public class MainController {
     public String manageDuantrienkhai(Model model) {
 		List<duantrienkhai> duantrienkhai = duantrienkhaiRepository.findAll();
 		model.addAttribute("Duantrienkhai", duantrienkhai);
-		return "admin/duantrienkhai";
+		return "/admin/duantrienkhai";
 		
 	}
     @RequestMapping("/viewUpdateDuan/{id}")
@@ -133,7 +133,7 @@ public class MainController {
     	duantrienkhaiRepository.save(Duantrienkhai);
 		List<duantrienkhai> duantrienkhai = duantrienkhaiRepository.findAll();
 		model.addAttribute("Duantrienkhai", duantrienkhai);
-		return "admin/duantrienkhai";
+		return "/admin/duantrienkhai";
     	
     }
     @RequestMapping("/viewAddDuAn")
@@ -146,7 +146,7 @@ public class MainController {
     	duantrienkhaiRepository.save(Duantrienkhai);
 		List<duantrienkhai> duantrienkhai = duantrienkhaiRepository.findAll();
 		model.addAttribute("Duantrienkhai", duantrienkhai);
-		return "admin/duantrienkhai";
+		return "/admin/duantrienkhai";
     	
     }
     @RequestMapping("/deleteDuAn/{id}")
@@ -154,28 +154,28 @@ public class MainController {
     	duantrienkhaiRepository.deleteById(id);
 		List<duantrienkhai> duantrienkhai = duantrienkhaiRepository.findAll();
 		model.addAttribute("Duantrienkhai", duantrienkhai);
-		return "admin/duantrienkhai";
+		return "/admin/duantrienkhai";
     	
     }
     @RequestMapping("manageLienHe")
     public String manageLienHe(Model model){
 //		List<lienhe> lienhe = LienheRepository.findAll();
 //		model.addAttribute("Lienhe", lienhe);
-		return "admin/lienhe";
+		return "/admin/lienhe";
     }
     @RequestMapping(value = "searchLienHe", produces = "application/x-www-form-urlencoded;charset=UTF-8")
     public String searchLienHe(@RequestParam(value = "searchKey") String searchKey, Model model){
     	List<lienhe> lienhe = (List<springlogin.entities.lienhe>) LienheRepository.searchLienHe(searchKey);
 	    model.addAttribute("Lienhe", lienhe);
-	    return "admin/lienhe";
+	    return "/admin/lienhe";
     
     
-    }    
+    }
     @RequestMapping(value = "searchAccount", produces = "application/x-www-form-urlencoded;charset=UTF-8")
     public String searchAccount(@RequestParam(value = "searchKey") String searchKey, Model model){
     	List<account> Account = (List<springlogin.entities.account>) AccountRepository.findByUsername(searchKey);
     	model.addAttribute("Account", Account);
-	    return "admin/selectaccount";
+	    return "/admin/selectaccount";
     
     
     }
@@ -183,7 +183,7 @@ public class MainController {
     public String manageAccount(Model model) {
 		List<account> account = AccountRepository.findAll();
 		model.addAttribute("Account", account);
-		return "admin/selectaccount";
+		return "/admin/selectaccount";
     }
     @RequestMapping("viewAddAccount")
     public String viewAddAccount(Model model) {
@@ -210,7 +210,7 @@ public class MainController {
 		
    		
 		  modelAndView.addObject("Account",AccountRepository.findAll());
-          modelAndView.setViewName("admin/selectaccount");
+          modelAndView.setViewName("/admin/selectaccount");
           return modelAndView;
     }
     @RequestMapping("/deleteAccount/{id}")
@@ -218,7 +218,7 @@ public class MainController {
     	AccountRepository.deleteById(id);
    		List<account> account = AccountRepository.findAll();
 		model.addAttribute("Account", account);
-		return "admin/selectaccount";
+		return "/admin/selectaccount";
     	
     }
     @RequestMapping("/viewUpdateAccount/{id}")
@@ -235,7 +235,7 @@ public class MainController {
    		AccountRepository.save(Account);
    		List<account> account = AccountRepository.findAll();
 		model.addAttribute("Account", account);
-		return "admin/selectaccount";
+		return "/admin/selectaccount";
     }
     
     
@@ -248,7 +248,7 @@ public class MainController {
     @RequestMapping(value = "/logoutSuccessful", method = RequestMethod.GET)
     public String logoutSuccessfulPage(Model model) {
         model.addAttribute("title", "Logout");
-        return "index";
+        return "/index";
     }
     @RequestMapping(value = "/403", method = RequestMethod.GET)
     public String accessDenied(Model model, Principal principal) {
