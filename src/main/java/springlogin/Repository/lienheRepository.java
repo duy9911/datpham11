@@ -17,5 +17,6 @@ public interface lienheRepository extends JpaRepository<lienhe, Integer>{
 	@Query(value ="INSERT INTO contact (hoten ,diachi, dienthoai, email, mucdichgui, ngay, noidung, tieudegui) VALUES (:hoten, :diachi, :dienthoai, :email, :mucdichgui, :ngay, :noidung, :tieudegui)", nativeQuery = true)
 	void savelienhe(@Param("hoten") String hoten, @Param("diachi") String diachi, @Param("dienthoai") String dienthoai, @Param("email") String email, @Param("mucdichgui") String mucdichgui, @Param("ngay") String ngay, @Param("noidung") String noidung, @Param("tieudegui") String tieudegui);
 
-	
+	@Query(value = "select * from contact where ngay = :ngay", nativeQuery = true)
+	List<lienhe> searchLienHe(@Param("ngay") String ngay);
 }

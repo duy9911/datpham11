@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="/style/style.css">
@@ -56,8 +56,8 @@
 						</div>
 					</div>
 					<div style="background-color: #F8FAD5; width: 100%; height: auto;">
-						<form action="searchlienhe.php" accept-charset="utf-8" method="POST">
-							Nhập ngày cần tìm: <input type="text" name="searchlienhe" placeholder="yyyy/mm/dd">
+						<form th:action="@{/searchLienHe}" accept-charset="utf-8" method="POST">
+							Nhập ngày cần tìm: <input type="text" name="searchKey" placeholder="yyyy-mm-dd" th:value="${searchKey}">
 							<input type="submit" name="" value="Tìm kiếm">
 						</form>
 					</div>
