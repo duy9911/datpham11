@@ -47,6 +47,9 @@ public class MainController {
 	private accountRepository AccountRepository;
 	@Autowired
 	private UserRoleRepository userRoleRepository;
+	@Autowired
+	private appUserRepository AppUserRepository;
+	
 	
 
 	
@@ -165,6 +168,14 @@ public class MainController {
     	List<lienhe> lienhe = (List<springlogin.entities.lienhe>) LienheRepository.searchLienHe(searchKey);
 	    model.addAttribute("Lienhe", lienhe);
 	    return "admin/lienhe";
+    
+    
+    }
+    @RequestMapping(value = "searchAccount", produces = "application/x-www-form-urlencoded;charset=UTF-8")
+    public String searchAccount(@RequestParam(value = "searchKey") String searchKey, Model model){
+    	List<AppUser> appUser = (List<springlogin.entities.AppUser>) AppUserRepository.findByUsername(searchKey);
+    	model.addAttribute("Account", appUser);
+	    return "/admin/selectaccount";
     
     
     }

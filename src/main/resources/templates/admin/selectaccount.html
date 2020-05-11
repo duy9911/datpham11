@@ -36,56 +36,56 @@
 </head>
 <body>
 
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-2">
-						<a href="admin" title=""><img src="/img/Logo.png" alt="" style="width: 100%; height: auto;"></a>
-					</div>
-					<div class="col-sm-10" >
-						<h2 style="text-align: center; width: 80%; font-weight: 500;">CÔNG TY CỔ PHẦN HANAGO QUỐC TẾ</h2>
-					</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-2">
+				<a href="admin" title=""><img src="/img/Logo.png" alt="" style="width: 100%; height: auto;"></a>
+			</div>
+			<div class="col-sm-10" >
+				<h2 style="text-align: center; width: 80%; font-weight: 500;">CÔNG TY CỔ PHẦN HANAGO QUỐC TẾ</h2>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3 col-md-3" style="background-color: #CC681D;"></div>
+			<div class="col-lg-9 col-md-9" style="background-color: #CC681D; width: 100%; height: auto;">
+				<div style="width: 100%">
+					<th:block th:include="admin/menuTop"></th:block>
 				</div>
 			</div>
-
-
-
-			<div class="container">
-				<div class="row">
-				<div class="col-lg-3 col-md-3" style="background-color: #CC681D;"></div>
-					<div class="col-lg-9 col-md-9" style="background-color: #CC681D; width: 100%; height: auto;">
-						<div style="width: 100%">
-<th:block th:include="admin/menuTop"></th:block>
-						</div>
-					</div>
-					<div style="background-color: #F8FAD5; width: 80%; height: auto;">
-						<form action="" method="POST" accept-charset="utf-8">
-							Nhập tài khoản cần tìm: <input type="text" name="searchlienhe" placeholder="Username">
-							<input type="submit" name="" value="Tìm kiếm">
-						</form>
-					</div>
-					<div style="width: 20%; height: auto; background-color: #F8FAD5;">
-						<a href="/viewAddAccount" title="" style="float: right;"><i class="material-icons" style="font-size:25px;color:red">add_circle_outline</i></a>
-					</div>
-					<div style="background-color: #F8FAD5; width: 100%; height: auto;">
-						<table class="tablelienhe">
-							<tr class="trlienhe">
-								<td class="tdlienhe">User name</td>
-								<td class="tdlienhe">Pass word</td>
-								<td class="tdlienhe" colspan="2" style="text-align: center;"> Action</td>
-							</tr>
-							<tr class="trlienhe" th:each="account : ${Account}">
-									<td class="tdlienhe" th:text=${account.user_Name}></td>
-									<td class="tdlienhe" th:text=${account.encryted_Password}></td>
-									<td style="text-align: center;"><a th:href="@{/viewUpdateAccount/}+${account.user_id}">Update</a></td>
-									<td style="text-align: center;"><a th:href="@{/deleteAccount/}+${account.user_id}">Delete</a></td>
-
-								</tr>
-						</table>
-					</div>
-<th:block th:include="admin/endpage"></th:block>
-				</div>
+			<div style="background-color: #F8FAD5; width: 80%; height: auto;">
+				<form th:action="@{/searchAccount}" accept-charset="utf-8" method="POST">
+					Nhập tài khoản cần tìm: <input type="text" name="searchKey" placeholder="Tên đăng nhập" th:value="${searchKey}">
+					<input type="submit" name="" value="Tìm kiếm">
+				</form>
 			</div>
-			<!-- phan lien he  -->
+			<div style="width: 20%; height: auto; background-color: #F8FAD5;">
+				<a href="/viewAddAccount" title="" style="float: right;"><i class="material-icons" style="font-size:25px;color:red">add_circle_outline</i></a>
+			</div>
+			<div style="background-color: #F8FAD5; width: 100%; height: auto;">
+				<table class="tablelienhe">
+					<tr class="trlienhe">
+						<td class="tdlienhe">User name</td>
+						<td class="tdlienhe">Pass word</td>
+						<td class="tdlienhe" colspan="2" style="text-align: center;"> Action</td>
+					</tr>
+					<tr class="trlienhe" th:each="account : ${Account}">
+						<td class="tdlienhe" th:text=${account.user_Name}></td>
+						<td class="tdlienhe" th:text=${account.encryted_Password}></td>
+						<td style="text-align: center;"><a th:href="@{/viewUpdateAccount/}+${account.user_id}">Update</a></td>
+						<td style="text-align: center;"><a th:href="@{/deleteAccount/}+${account.user_id}">Delete</a></td>
+
+					</tr>
+				</table>
+			</div>
+			<th:block th:include="admin/endpage"></th:block>
+		</div>
+	</div>
+	<!-- phan lien he  -->
 
 
 
