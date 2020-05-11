@@ -13,124 +13,86 @@
 
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<style>
+		td{
+			width: 7%;
+			height: auto;
+		}
+		.tablelienhe{
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
+		.trlienhe{
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
+		.tdlienhe{
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
+	</style>
 </head>
 <body>
 
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-2">
-				<a href="/" title=""><img src="img/Logo.png" alt="" style="width: 100%; height: auto;"></a>
-			</div>
-			<div class="col-sm-10" >
-				<h2 style="text-align: center; width: 80%; font-weight: 500; margin-top: 3%; margin-left: 10%;">CÔNG TY CỔ PHẦN HANAGO QUỐC TẾ</h2>
-			</div>
-		</div>
-	</div>
-
-
-
-	<div class="container">
-		<div class="row" style=" border-radius: 30px; border-style: solid;">
-<th:block th:include="menuLeft"></th:block>
-
-			<div class="col-lg-9 col-md-9" id="boderright">
-				<div>
-			
-					<th:block th:include="menuTop"></th:block>
-
-
-				</div>	
-
-				<div style="margin-top: 100px; margin-bottom: 10px;">
-					<table style="width:100%; border: 1px solid black; background-color: #F8FAD5;">
-						<tr>
-							<th colspan="2">
-								<h3 style="margin-top: 20px; text-align: center;">CÔNG TY CỔ PHẦN HANAGO QUỐC TẾ</h3>
-								<div class="textlienhe">
-									- Địa chỉ: Ô111, Lô A, KĐT Đại Kim - Định Công, 
-									Phường Định Công, Quận Hoàng Mai, TP. Hà Nội
-								</div>
-								<div class="textlienhe">
-									- Tel: 02462.594.592
-								</div>
-								<div class="textlienhe">
-									- Fax: 0243.6413.412
-								</div>
-
-							</th>
-						</tr>
-						<form th:action="@{/addLienhe}" method="POST" th:object="${lienhe}">
-							<tr>
-								<td><div class="textlienhe">Họ và tên :</div></td>
-								<td><input type="text" th:field="*{hoten}" style="width: 80%"></td>
-							</tr>
-							<tr>
-								<td><div class="textlienhe">Địa chỉ :</div></td>
-								<td><input type="text" th:field="*{diachi}" style="width: 80%"></td>
-							</tr>
-							<tr>
-								<td><div class="textlienhe">Số điện thoại:</div></td>
-								<td><input type="text" th:field="*{dienthoai}" style="width: 80%"></td>
-							</tr>
-							<tr>
-								<td><div class="textlienhe">Email :</div></td>
-								<td><input type="text" th:field="*{email}" style="width: 80%"></td>
-							</tr>
-							<tr>
-								<td><div class="textlienhe">Mục đích gửi:</div></td>
-								<td>									
-									<select size="1" style="font-size:14pt" th:field="*{mucdichgui}" id="cbopurpose">
-										<option value="Hỗ trợ khách hàng">Hỗ trợ khách hàng</option>
-										<option value="Góp ý">Góp ý</option>
-									</select>
-								</td>
-							</tr>
-							<tr>
-								<td><div class="textlienhe">Tiêu để gửi :</div></td>
-								<td><input type="text" th:field="*{tieudegui}" style="width: 80%"></td>
-							</tr>
-							<tr>
-								<td><div class="textlienhe">Nội dung gửi :</div></td>
-								<td><textarea th:field="*{noidung}" style="width: 80%; overflow: auto;height: 200px"></textarea></td>
-							</tr>
-							<tr>
-														<tr>
-								<td><div class="textlienhe">Ngày gửi :</div></td>
-								<td>	<input type="text" name="" id="myDate" readonly="true" style="width: 80%" th:field="*{ngay}"></td>
-									<script>
-		var today = new Date();
-		var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-		document.getElementById("myDate").value = date;
-	</script>
-								
-							</tr>
-							<tr>
-								<td colspan="2" style="text-align: center;"><input type="submit" name="" value="Đồng ý gửi"></td>
-							</tr>
-						</form>
-					</table>
-
-
-
-
-
-
-
-
-
-
-
-
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-2">
+						<a href="admin" title=""><img src="img/Logo.png" alt="" style="width: 100%; height: auto;"></a>
+					</div>
+					<div class="col-sm-10" >
+						<h2 style="text-align: center; width: 80%; font-weight: 500;">CÔNG TY CỔ PHẦN HANAGO QUỐC TẾ</h2>
+					</div>
 				</div>
-
 			</div>
 
 
 
-		</div>
-		<!-- phan lien he  -->
-<th:block th:include="endpage"></th:block>
+			<div class="container">
+				<div class="row">
+				<div class="col-lg-3 col-md-3" style="background-color: #CC681D;"></div>
+					<div class="col-lg-9 col-md-9" style="background-color: #CC681D; width: 100%; height: auto;">
+						<div style="width: 100%">
+<th:block th:include="/admin/menuTop"></th:block>
+						</div>
+					</div>
+					<div style="background-color: #F8FAD5; width: 100%; height: auto;">
+						<form th:action="@{/searchLienHe}" accept-charset="utf-8" method="POST">
+							Nhập ngày cần tìm: <input type="text" name="searchKey" placeholder="yyyy-mm-dd" th:value="${searchKey}">
+							<input type="submit" name="" value="Tìm kiếm">
+						</form>
+					</div>
+					<div style="background-color: #F8FAD5; width: 100%; height: auto;">
+						<table class="tablelienhe">
+							<tr class="trlienhe">
+								<td class="tdlienhe">Họ và tên</td>
+								<td class="tdlienhe">Địa chỉ</td>
+								<td class="tdlienhe">Điện thoại</td>
+								<td class="tdlienhe">Gmail</td>
+								<td class="tdlienhe">Mục đích gửi</td>
+								<td class="tdlienhe">Tiêu đề</td>
+								<td class="tdlienhe">Nội dung</td>
+								<td class="tdlienhe">Ngày liên hệ</td>
+							</tr>
 
-	</body>
-	</html>
+								<tr class="trlienhe" th:each="lienhe : ${Lienhe}">
+									<td class="tdlienhe" th:text=${lienhe.hoten}></td>
+									<td class="tdlienhe" th:text=${lienhe.diachi}></td>
+									<td class="tdlienhe" th:text=${lienhe.dienthoai}></td>
+									<td class="tdlienhe" th:text=${lienhe.email}></td>
+									<td class="tdlienhe" th:text=${lienhe.mucdichgui}></td>
+									<td class="tdlienhe" th:text=${lienhe.tieudegui}></td>
+									<td class="tdlienhe" th:text=${lienhe.noidung}></td>
+									<td class="tdlienhe" th:text=${lienhe.ngay}></td>
+								</tr>
+
+
+						</table>
+					</div>
+<th:block th:include="/admin/endPage"></th:block>
+				</div>
+			</div>
+			<!-- phan lien he  -->
+
+
+</body>
+</html>
