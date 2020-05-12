@@ -15,70 +15,74 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-2">
-						<a href="admin" title=""><img src="/img/Logo.png" alt="" style="width: 100%; height: auto;"></a>
-					</div>
-					<div class="col-sm-10" >
-						<h2 style="text-align: center; width: 80%; font-weight: 500;">CÔNG TY CỔ PHẦN HANAGO QUỐC TẾ</h2>
-					</div>
-				</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-2">
+				<a href="admin" title=""><img src="/img/Logo.png" alt="" style="width: 100%; height: auto;"></a>
 			</div>
+			<div class="col-sm-10" >
+				<h2 style="text-align: center; width: 80%; font-weight: 500;">CÔNG TY CỔ PHẦN HANAGO QUỐC TẾ</h2>
+			</div>
+		</div>
+	</div>
 
 
 
-			<div class="container">
-				<div class="row" style=" border-radius: 30px; border-style: solid;">
-<th:block th:include="admin/menuLeft"></th:block>
+	<div class="container">
+		<div class="row" style=" border-radius: 30px; border-style: solid;">
+			<th:block th:include="admin/menuLeft"></th:block>
 
-					<div class="col-lg-9 col-md-9" style="background-color: #CC681D; border-top-right-radius: 20px; border-bottom-right-radius: 20px;">
-						<div class="row">
-							<div class="col-lg-12 col-md-12">
-<th:block th:include="admin/menuTop"></th:block>
-							</div>
-							<div class="col-lg-12 col-md-12" style="margin-top: 20px; background-color: #F8FAD5; text-align: center; margin-bottom: 20px">
-								<div style="text-align: center;">
-									<H5>Cập nhật tài khoản</H5>
-								</div>
-									<table style="width:100%">
-										<form th:action="@{/updateAccount}" method="POST" th:object="${Account}">
-											<tr>
-												<td><div class="textlienhe">Tên đăng nhập :</div></td>
-												<td><input type="text" th:field="*{user_Name}" style="width: 80%"></td>
-											</tr>
-											<tr>
-												<td><div class="textlienhe">Mật khẩu :</div></td>
-												<td><input type="text" th:field="*{encryted_Password}" style="width: 80%"></td>
-											</tr>
-																					</tr>
-																				<tr>
-											<td><div class="textlienhe">Trạng thái</div></td>
-											<td>
-									<select size="1" style="font-size:14pt" name="mucdichgui" id="cbopurpose" th:field="*{enabled}">>
+			<div class="col-lg-9 col-md-9" style="background-color: #CC681D; border-top-right-radius: 20px; border-bottom-right-radius: 20px;">
+				<div class="row">
+					<div class="col-lg-12 col-md-12">
+						<th:block th:include="admin/menuTop"></th:block>
+					</div>
+					<div class="col-lg-12 col-md-12" style="margin-top: 20px; background-color: #F8FAD5; text-align: center; margin-bottom: 20px">
+						<div style="text-align: center;">
+							<H5>Cập nhật tài khoản</H5>
+						</div>
+						<table style="width:100%">
+							<form th:action="@{/updateAccount}" method="POST" th:object="${Account}">
+								<tr style="display: none">
+									<td><div class="textlienhe">ID :</div></td>
+									<td><input type="text" th:field="*{user_id}" style="width: 80%"></td>
+								</tr>
+								<tr>
+									<td><div class="textlienhe">Tên đăng nhập :</div></td>
+									<td><input type="text" th:field="*{user_Name}" style="width: 80%"></td>
+								</tr>
+								<tr>
+									<td><div class="textlienhe">Mật khẩu :</div></td>
+									<td><input type="text" th:field="*{encryted_Password}" style="width: 80%"></td>
+								</tr>
+							</tr>
+							<tr>
+								<td><div class="textlienhe">Trạng thái</div></td>
+								<td>
+									<select size="1" style="font-size:14pt; width:80%;" name="mucdichgui" id="cbopurpose" th:field="*{enabled}">>
 										<option value="1">kích hoạt</option>
 										<option value="0">không kích hoạt</option>
 									</select>						
-											
-											
-											</td>
-										</tr>
-											<tr>
-												<td colspan="2" style="text-align: center;"><input type="submit" name="" value="Cập nhật"></td>
-											</tr>
-										</form>
-									</table>
+									
+									
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2" style="text-align: center;"><input type="submit" name="" value="Cập nhật"></td>
+							</tr>
+						</form>
+					</table>
 
-						</div>	
+				</div>	
 
-					</div>
-
-
-
-				</div>
 			</div>
-			<!-- phan lien he  -->
-<th:block th:include="admin/endpage"><th:block>
+
+
+
+		</div>
+	</div>
+	<!-- phan lien he  -->
+	<th:block th:include="admin/endpage"><th:block>
 
 </body>
 </html>

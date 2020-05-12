@@ -46,7 +46,7 @@
 
 									<table style="width:100%">
 										<form th:action="@{/updateDuan}" method="POST" th:object="${Duantrienkhai}">
-											<tr>
+											<tr style="display: none">
 												<td><div class="textlienhe">ID :</div></td>
 												<td><input style="width: 80%" th:field="*{id}" readonly="true"></td>
 											</tr>
