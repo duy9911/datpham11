@@ -54,7 +54,7 @@
 	<div class="parent">
 			<form action="" method="POST" name='f' th:action="@{/login}">
 			<input type="text" name='username' placeholder="Tên đăng nhập">
-			<input type="password" name='password' placeholder="Mật khẩu">
+			<input type="password" name='password' placeholder="Mật khẩu" style="width: 250px; border-radius: 5px; outline: 0; border: 0; height: 35px; margin: 10px 3px 20px 3px;">
 			<p th:if="${#request.getParameter('error') == 'true'}" style="color:red">Invalid username or password</p>
 			<div><input type="submit" value="Login" name="submit"></div>
 			
