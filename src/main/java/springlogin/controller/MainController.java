@@ -248,7 +248,8 @@ public class MainController {
     }
     @RequestMapping(value = "/logoutSuccessful", method = RequestMethod.GET)
     public String logoutSuccessfulPage(Model model) {
-        model.addAttribute("title", "Logout");
+        List<duantrienkhai> duantrienkhai = duantrienkhaiRepository.findAll();
+	model.addAttribute("Duantrienkhai", duantrienkhai);
         return "index";
     }
     @RequestMapping(value = "/403", method = RequestMethod.GET)
