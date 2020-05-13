@@ -56,14 +56,15 @@ public class MainController {
 
 	
 	@RequestMapping(value = { "/", "/home" }, method = RequestMethod.GET)
-    public String welcomePage() {
+    public String welcomePage(Model model) {
+	List<duantrienkhai> duantrienkhai = duantrienkhaiRepository.findAll();
+	model.addAttribute("Duantrienkhai", duantrienkhai);
         return "index";
     }
  
  // da fix
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginPage(Model model) {
- 
         return "login";
     }
     
