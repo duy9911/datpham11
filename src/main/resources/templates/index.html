@@ -39,11 +39,13 @@
 
 	<div class="container">
 		<div class="row" style=" border-radius: 30px; border-style: solid;">
-			<th:block th:include="menuLeft"></th:block>
+			<th:block th:include="/menuLeft"></th:block>
 
 			<div class="col-lg-9 col-md-9" id="boderright">
-			<th:block th:include="menuTop"></th:block>
-
+			<div class="col-lg-12 col-md-12">
+			<th:block th:include="/menuTop"></th:block>
+			</div>
+			<div class="col-lg-12 col-md-12">
 
 				<div style="margin-top: 100px; margin-bottom: 10px;">
 					<div class="slideshow-container">
@@ -97,9 +99,32 @@
 }
 </script>
 </div>
-<div class="demo20 toggle">
-<th:block th:include="endpage"></th:block>
 </div>
+
+
+<div class="col-lg-12 col-md-12">
+<!-- <div class="container">
+<div class="row" style="background-color: #F8FAD5;">
+<div class="col-lg-2 col-md-2">
+	<img alt="" src="https://canhokhachsan.vn/wp-content/uploads/2016/03/icon-home.png" style="width: 100%; height: auto;">
+</div>
+<div class="col-lg-10 col-md-10"> -->
+<div> <th:block th:include="/autoplay"></th:block></div>
+<!-- </div>
+</div>
+</div> -->
+</div>
+
+
+
+
+<div class="demo20 toggle">
+<th:block th:include="/endpage"></th:block>
+</div>
+
+
+
+
 
 <script>
 // $(document).ready(function(){
@@ -137,7 +162,7 @@ $(document).ready(function () {
 <div id="copyright" class="activeLorem">
 	
 
-<th:block th:include="endpage"></th:block>
+<th:block th:include="/endpage"></th:block>
 </div>
 
 </body>
