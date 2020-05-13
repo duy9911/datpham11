@@ -22,6 +22,7 @@ import springlogin.entities.UserRole;
 
 
 import springlogin.Repository.UserRoleRepository;
+import springlogin.Repository.UserRoleRepository1;
 import springlogin.Repository.accountRepository;
 import springlogin.Repository.appUserRepository;
 import springlogin.Repository.duantrienkhaiRepository;
@@ -33,6 +34,7 @@ import springlogin.entities.duantrienkhai;
 import springlogin.entities.lienhe;
 import springlogin.sercurity.EncrytedPasswordUtils;
 import springlogin.utils.WebUtils;
+
 
 
 
@@ -49,6 +51,8 @@ public class MainController {
 	private UserRoleRepository userRoleRepository;
 	@Autowired
 	private appUserRepository AppUserRepository;
+	@Autowired
+	private UserRoleRepository1 userRoleRepository1;
 
 	
 
@@ -216,6 +220,7 @@ public class MainController {
     }
     @RequestMapping("/deleteAccount/{id}")
     public String deleteAccount(@PathVariable int id, Model model) {
+	userRoleRepository1.deleteByUserId(id);
     	AccountRepository.deleteById(id);
    		List<account> account = AccountRepository.findAll();
 		model.addAttribute("Account", account);
