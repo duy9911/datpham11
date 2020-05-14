@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		.a{
+			position: relative;
+			width: 100%; 
+			height: 38px;
+			
+		}
+		.b{
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background-color: #D99455;
+			overflow: hidden;
+			width: 100%;
+			height: 0;
+			transition: .5s ease;
+			font-size: 23px;
+			color: #DCDCDC;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="a">
+		<div class="b">
+			Công Ty TNHH Phát Triển Dự Án Song Nam - Hotline : 0769 861 168
+		</div>
+	</div>
+
+<!-- 	<h1 class="c">b</h1>	
+	<h1 class="c">c</h1>	
+	<h1 class="c">d</h1>	 -->
+	<script>
+		var text = 0;
+		showSlides1();
+		function showSlides1(){
+			var a = document.getElementsByClassName("b");
+			// for(var i = 0; i < a.length; i++){
+			// 	a[i].style.display = "none";
+			// }
+			text++;
+			if(text > 2)
+			{
+				text = 1;
+			}
+			// a[text-1].style.display = "block";
+			if (text % 2 == 0) {
+				a[0].style.height = "100%";
+			}
+			if (text % 2 != 0) {
+				a[0].style.height = "0%";
+			}
+			setTimeout(showSlides1, 1000);
+		}
+	</script>
+</body>
+</html>
