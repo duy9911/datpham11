@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <!-- head -->
+    <meta charset="utf-8">
+
+  <!--   <link rel="stylesheet" href="C:\Users\Pham Dat\Desktop\owl\docs.theme.min.css"> -->
+    <link rel="stylesheet" href="/owl/owl.carousel.min.css">
+<!--     <link rel="stylesheet" href="C:\Users\Pham Dat\Desktop\owl\owl.theme.default.min.css"> -->
+    <!-- javascript -->
+    <script src="/owl/jquery.min.js"></script>
+    <script src="/owl/owl.carousel.js"></script>
+  </head>
+  <body>
+
+    <!--  Demos -->
+    <section id="demos">
+      <div class="row">
+        <div class="large-12 columns" style="width: 100%">
+          <div class="owl-carousel owl-theme">
+            <div class="item" th:each="duantrienkhai : ${Duantrienkhai}">
+              <img th:src=${duantrienkhai.linkimg} alt="image" />
+            </div>
+          </div>
+          <script>
+            $(document).ready(function() {
+              var owl = $('.owl-carousel');
+              owl.owlCarousel({
+                items: 4,
+                loop: true,
+                margin: 10,
+                autoplay: true,
+                autoplayTimeout: 1000,
+                autoplayHoverPause: true,
+                dots: false,
+                
+              });
+              $('.play').on('click', function() {
+                owl.trigger('play.owl.autoplay', [1000])
+              })
+              $('.stop').on('click', function() {
+                owl.trigger('stop.owl.autoplay')
+              })
+            })
+          </script>
+        </div>
+      </div>
+    </section>
+
+
+
+  </body>
+</html>
