@@ -7,7 +7,7 @@
 <body>
 		<div class="topnav" id="myTopnav">
 			<a href="/admin" class="active">Trang chủ</a>
-			<a href="/logoutSuccessful">Đăng xuất</a>
+			<a th:if="${#request.userPrincipal != null}" th:href="@{/logout}">Đăng xuất</a>
 		</div>
 
 
